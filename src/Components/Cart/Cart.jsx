@@ -16,12 +16,14 @@ function Cart({ cartItems, onCheckout }) {
     <div className="cart__container">
       {cartItems.length === 0 ? "No items in cart " : <span>Total Price: {totalPrice.toFixed(2)} EUR</span>}
       <br />
-      <Button
-        title={`${cartItems.length === 0 ? "Order" : "Checkout"} `}
-        type={"checkout"}
-        disable={cartItems.length === 0 ? true : false}
-        onClick={onCheckout}
-      />
+      {/* Условный рендеринг кнопки "Order" */}
+      {cartItems.length > 0 && (
+        <Button
+          title="Order"
+          type="checkout"
+          onClick={onCheckout}
+        />
+      )}
     </div>
   );
 }
