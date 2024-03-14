@@ -5,7 +5,14 @@ import Cart from '../Cart/Cart';
 
 import { getData } from '../../db/db';
 
+const tg = window.Telegram.WebApp;
+
 function Food() {
+  // ---- TG
+  useEffect(() => {
+    tg.ready();
+  });
+
   const [cartItems, setCartItems] = useState([]);
 
   const foods = getData();
