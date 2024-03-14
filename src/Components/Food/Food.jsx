@@ -47,6 +47,8 @@ function Food() {
 
 // ---- CHECKOUT
   const onCheckout = () => {
+    tg.MainButton.text = "Pay";
+    tg.MainButton.show();
   };
 
   return (
