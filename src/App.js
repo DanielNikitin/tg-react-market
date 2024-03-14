@@ -8,7 +8,6 @@ import Food from "./Components/Food/Food";
 const tg = window.Telegram.WebApp;
 
 function App() {
-
 // ---- TG
   useEffect(() => {
     tg.ready();

@@ -1,23 +1,27 @@
+import './App.css';
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Card from '../Card/Card';
-import Cart from '../Cart/Cart';
+import MenuPage from "./Components/Main/main";
 
-import { getData } from '../../db/db';
+import Card from "./Components/Card/Card";
+import Cart from "./Components/Cart/Cart";
+
+const { getData } = require("./db/db");
+
+const foods = getData();
 
 const tg = window.Telegram.WebApp;
 
-function Food() {
-  // ---- TG
+// ---- FUNC APP
+function App() {
+  const [cartItems, setCartItems] = useState([]);
+
   useEffect(() => {
     tg.ready();
   });
 
-  const [cartItems, setCartItems] = useState([]);
-
-  const foods = getData();
-
-// ---- ADD
+// ---- ADD FOOD
   const onAdd = (food) => {
     const exist = cartItems.find((x) => x.id === food.id);
     if (exist) {
@@ -31,7 +35,7 @@ function Food() {
     }
   };
 
-// ---- REMOVE
+// ---- REMOVE FOOD
   const onRemove = (food) => {
     const exist = cartItems.find((x) => x.id === food.id);
     if (exist.quantity === 1) {
@@ -66,4 +70,4 @@ function Food() {
   );
 }
 
-export default Food;
+export default App;
