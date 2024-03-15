@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import Card from '../Card/Card';
-import Cart from '../Cart/Cart';
+import Card from '../Food_Comp/Card/Card';
+import Cart from '../Food_Comp/Cart/Cart';
 
 import { getData } from '../../db/db';
 

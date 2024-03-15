@@ -1,5 +1,5 @@
 import React from "react";
-import "./Cart.css";
+import "../Cart/Cart.css";
 import Button from "../Button/Button";
 // import { loadStripe } from "@stripe/stripe-js";  // stripe.com
 
@@ -14,12 +14,11 @@ function Cart({ cartItems, onCheckout }) {
 
   return (
     <div className="cart__container">
-      {cartItems.length === 0 ? "No items in cart " : <span>Total Price: {totalPrice.toFixed(2)} EUR</span>}
+      {cartItems.length === 0 ? "No items in cart" : <span>Total Price: {totalPrice.toFixed(2)} EUR</span>}
       <br />
-      {/* Условный рендеринг кнопки "Order" */}
       {cartItems.length > 0 && (
         <Button
-          title="Order"
+          title="Checkout"
           type="checkout"
           onClick={onCheckout}
         />

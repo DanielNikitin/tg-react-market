@@ -1,4 +1,4 @@
-import "./Card.css";
+import "../Card/Card.css";
 import React, { useState } from "react";
 import Button from "../Button/Button";
 
