@@ -1,16 +1,32 @@
 import React from "react";
 import "../Cart/Cart.css";
 import Button from "../Button/Button";
-// import { loadStripe } from "@stripe/stripe-js";  // stripe.com
 
-
-function Cart({ cartItems, onCheckout }) {
+const Cart = ({ cartItems }) => {
   const totalPrice = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
 
-  // const makePayment = async () => {
-  //   const stripe = await loadStripe("pk_live_51Ou1aNP9lLnwPkwIXL16K9BAlr0XZ2i9UaubUw7gkwlPh69EAWL2sf2wI2l8XB8gUZrd5K7tbucwaChp3xuH00F300O1WpQHfy");
-  // }
-
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch('http://147.45.76.155:3000/create-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ /* данные заказа */ })
+      });
+      
+      if (response.ok) {
+        alert('Заказ получен!');
+      } else {
+        console.error('Ошибка создания заказа:', response.statusText);
+        alert('Произошла ошибка при создании заказа');
+      }
+    } catch (error) {
+      console.error('Ошибка при отправке запроса:', error);
+      alert('Произошла ошибка при отправке запроса');
+    }
+  };
+  
 
   return (
     <div className="cart__container">
@@ -20,11 +36,11 @@ function Cart({ cartItems, onCheckout }) {
         <Button
           title="Checkout"
           type="checkout"
-          onClick={onCheckout}
+          onClick={handleCheckout}  // запуск обработчика кнопки checkout
         />
       )}
     </div>
   );
-}
+};
 
 export default Cart;
