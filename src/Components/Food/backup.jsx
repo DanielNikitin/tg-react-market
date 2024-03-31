@@ -1,27 +1,25 @@
-import './App.css';
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import MenuPage from "./Components/Main/main";
+import Card from '../Food_Comp/Card/Card';
+import Cart from '../Food_Comp/Cart/Cart';
 
-import Card from "./Components/Card/Card";
-import Cart from "./Components/Cart/Cart";
-
-const { getData } = require("./db/db");
-
-const foods = getData();
+import { getData } from '../../db/db';
 
 const tg = window.Telegram.WebApp;
 
-// ---- FUNC APP
-function App() {
-  const [cartItems, setCartItems] = useState([]);
+tg.MainButton.color = '#8a2be2';
 
+function Food() {
+  // ---- TG
   useEffect(() => {
     tg.ready();
   });
 
-// ---- ADD FOOD
+  const [cartItems, setCartItems] = useState([]);
+
+  const foods = getData();
+
+  // ---- ADD
   const onAdd = (food) => {
     const exist = cartItems.find((x) => x.id === food.id);
     if (exist) {
@@ -35,7 +33,7 @@ function App() {
     }
   };
 
-// ---- REMOVE FOOD
+  // ---- REMOVE
   const onRemove = (food) => {
     const exist = cartItems.find((x) => x.id === food.id);
     if (exist.quantity === 1) {
@@ -49,25 +47,37 @@ function App() {
     }
   };
 
-// ---- CHECKOUT
+  // ---- CALCULATE
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+  };
+
+  // ---- CHECKOUT
   const onCheckout = () => {
-    tg.MainButton.text = "Pay";
-    tg.MainButton.show();
+    const data = {
+      items: cartItems.map((item) => ({
+        id: item.id,
+        name: item.title,
+        price: item.price,
+        quantity: item.quantity
+      })),
+      totalPrice: calculateTotalPrice()
+    };
+
+    tg.sendData(JSON.stringify(data));
   };
 
   return (
     <>
       <h1 className="heading">Order Food</h1>
-      <Cart cartItems={cartItems} onCheckout={onCheckout}/>
+      <Cart cartItems={cartItems} onCheckout={onCheckout} />
       <div className="cards__container">
-        {foods.map((food) => {
-          return (
-            <Card food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
-          );
-        })}
+        {foods.map((food) => (
+          <Card food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
+        ))}
       </div>
     </>
   );
 }
 
-export default App;
+export default Food;

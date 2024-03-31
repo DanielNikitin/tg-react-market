@@ -3,9 +3,15 @@
 // npm i telegraf
 // npm i create-react-App
 // npm i react-router-dom
+// npm i scrollreveal
+// npm i typed.js
 
 // react web working on the https://app.netlify.com/
 
 // ctrl k u / ctrl k c
 
 // npm start
+
+// git add .
+// git commit -m "test"
+// git push origin main
