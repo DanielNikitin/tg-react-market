@@ -11,7 +11,7 @@ function App() {
   <div>
     <BrowserRouter>
       <Routes>
-        <Route index element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/food" element={<Food />} />
         <Route path="/menu" element={<Menu />} />
       </Routes>

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "DCG",
+  "name": "Daily Customs Garage APP",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "LOGO65.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "65x65"
     },
     {
-      "src": "logo512.png",
+      "src": "LOGO512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
