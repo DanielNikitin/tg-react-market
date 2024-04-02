@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #e0c521;
+    --primary-color: #8400ff;  /* маленький + */
 }
 
 .btn {
@@ -11,7 +11,7 @@
     border-radius: 10px;
     width: 120px;
     margin-left: 10px;
-    box-shadow: 1px -3px 52px -5px rgba(0, 0, 0, 0.77);
+    box-shadow: 1px 0px 52px -2px rgba(0, 0, 0, 0.7);
     cursor: pointer;
 }
 
@@ -35,11 +35,11 @@
 }
 
 .btn.add:hover {
-    background-color: #cab320;
+    background-color: #8a2be2;  /* когда навёлся на большой + */
 }
 
 .btn.add:active {
-    background-color: #ad9a1c;
+    background-color: #7b37bb;  /* большой + */
 }
 
 .btn.remove:hover {

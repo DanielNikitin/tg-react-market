@@ -9,8 +9,9 @@ const Cart = ({ cartItems, onCheckout }) => {
 
   return (
     <div className="cart__container">
-      {cartItems.length === 0 ? "No items in cart" : <span>Total Price: {totalPrice.toFixed(2)} EUR</span>}
-      <br />
+      {cartItems.length === 0 ? "No items in cart" : 
+      <span className="total-price">Total Price: {totalPrice.toFixed(2)} EUR</span>
+}
       {/* {cartItems.length > 0 && (
         <Button
           title="Checkout"

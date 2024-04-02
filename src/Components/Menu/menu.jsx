@@ -12,6 +12,7 @@ function MenuPage() {
     <div>
       <h1>Menu</h1>
       <ul>
+        <li><Link to="/">Home</Link></li>
         <li><button onClick={redirectToGame}>Game</button></li>
         <li><Link to="/food">Food</Link></li>
       </ul>
