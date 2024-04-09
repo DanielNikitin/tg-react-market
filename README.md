@@ -4,6 +4,10 @@ This is web-app marketplace for Telegram.
 Based on React JS, and payment system what i used is stripe.com
 If you want to try demo, you can use my bot in telegram @dcg_js_test_bot.
 
+Node invoice handler need to track and send an estimated invoice, which, after payment, 
+will send purchased items by email(for example) in order to understand what exactly the client bought.
+I didn't find any documentation on stripe.com to be able to track this using any function.
+
 Regards,
 Daniel
 
