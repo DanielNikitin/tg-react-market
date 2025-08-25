@@ -1,5 +1,5 @@
 This is full-stack web-app marketplace for Telegram. <br>
-Based on React JS, and payment system is Stripe.com <br>
+Market page based on React JS, and payment system by Stripe.com <br>
 <br>
 NodeJS server for invoice handler need to track and send an estimated invoice, which, after payment, <br>
 will send purchased items by email(for example) in order to understand what exactly the client bought. <br>
